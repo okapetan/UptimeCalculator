@@ -31,9 +31,12 @@ jobs:
         path: staging
     - name: Download a the artifact
       uses: actions/download-artifact@v2.0.10
+      id: download
       with:
         name: Package
         path: staging/artifacts
     - name: display
       run: ls -R
       working-directory: staging/artifacts
+    - name: 'Echo download path'
+      run: echo ${{steps.download.outputs.download-path}}
