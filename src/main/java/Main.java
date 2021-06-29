@@ -11,6 +11,7 @@ public class Main {
         ResourceConfig rc = new ResourceConfig().packages("at.kienboeck");
         HttpServer server = JdkHttpServerFactory.createHttpServer(URI.create("http://localhost:8080/"), rc);
         System.out.println("Server started");
+        System.out.println("Just a test");
 
         try {
             //noinspection ResultOfMethodCallIgnored
