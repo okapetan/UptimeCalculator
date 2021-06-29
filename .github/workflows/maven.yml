@@ -24,19 +24,3 @@ jobs:
       run: mvn -B package --file pom.xml
     - name: copy to staging
       run: mkdir staging && cp target/*.jar staging
-    - name: Upload the artifact
-      uses: actions/upload-artifact@v2.2.4
-      with:
-        name: Package
-        path: staging
-    - name: Download a the artifact
-      uses: actions/download-artifact@v2.0.10
-      id: download
-      with:
-        name: Package
-        path: staging/artifacts
-    - name: display
-      run: ls -R
-      working-directory: staging/artifacts
-    - name: 'Echo download path'
-      run: echo ${{steps.download.outputs.download-path}}
